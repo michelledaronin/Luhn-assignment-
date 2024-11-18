@@ -2,8 +2,8 @@
 # Minimal built in functions are to be used and the majority of functions must be
 # created yourself
 
-# More packages may be imported in the space below if approved by your instructor
-
+# More packages may be imported in the space below if approved by your instructor 
+#Michelle
 def printMenu():
     print('''
           Customer and Sales System\n
@@ -21,6 +21,7 @@ def printMenu():
     You may place as many or as few parameters as needed
     This function may also be broken down further depending on your algorithm/approach
 '''
+#Mirhan
 def enterCustomerInfo():
     pass    # Remove this pass statement and add your own code below
 
@@ -30,6 +31,7 @@ def enterCustomerInfo():
     You may place as many or as few parameters as needed
     This function may also be broken down further depending on your algorithm/approach
 '''
+#Michelle
 def validatePostalCode():
     pass    # Remove this pass statement and add your own code below
 
@@ -39,6 +41,7 @@ def validatePostalCode():
     You may place as many or as few parameters as needed
     This function may also be broken down further depending on your algorithm/approach
 '''
+#Mirhan
 def validateCreditCard():
     pass    # Remove this pass statement and add your own code below
 
@@ -48,6 +51,7 @@ def validateCreditCard():
     You may place as many or as few parameters as needed
     This function may also be broken down further depending on your algorithm/approach
 '''
+#Mirhan
 def generateCustomerDataFile():
     pass    # Remove this pass statement and add your own code below
 
