@@ -33,8 +33,25 @@ def enterCustomerInfo():
 '''
 # Michelle
 def validatePostalCode():
-    pass    # Remove this pass statement and add your own code below
+    try:
+with open("postal_codes.csv", "r") as file:
+            postal_codes = [line.strip().split('|')[0] for line in file]
+    except FileNotFoundError:
+        print("Error: postal_codes.csv file not found.")
+        return False
+postal_code = input("Enter the postal code to validate: ").strip()
+ # Validate length
+    if len(postal_code) < 3:
+        print("Invalid: Postal code must be at least 3 characters long.")
+        return False
+    if postal_code[:3] not in postal_codes:
+        print("Invalid: Postal code prefix does not match any known postal codes.")
+        return False
 
+    print("Valid postal code.")
+    return True
+
+validatePostalCode()
 '''
     This function is to be edited to achieve the task.
     It is your decision to make this function a procedural or functional type
