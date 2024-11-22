@@ -34,10 +34,6 @@ def enterCustomerInfo():
             break 
         else: 
             print("Please type in your entire credit card number, which is between 9 to 19 digits.")
-        
-            
-    while not validatePostalCode: 
-        postal_code = input("What is your postal code? ")
    
     return first_name, last_name, city, credit_card_number, postal_code
 
