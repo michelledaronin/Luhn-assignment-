@@ -51,7 +51,6 @@ def validatePostalCode():
             for line in file:
  valid_prefixes = []
             for line in file:
-                # Split each line at '|' and extract the first field (postal code)
                 fields = []
                 for char in line: 
                     if char != '|':
