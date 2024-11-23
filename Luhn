@@ -45,25 +45,45 @@ def enterCustomerInfo():
 '''
 # Michelle
 def validatePostalCode():
-    try:
-with open("postal_codes.csv", "r") as file:
-            postal_codes = [line.strip().split('|')[0] for line in file]
+   try:
+        with open("postal_codes.csv", "r") as file:
+            valid_prefixes = []
+            for line in file:
+ valid_prefixes = []
+            for line in file:
+                # Split each line at '|' and extract the first field (postal code)
+                fields = []
+                for char in line: 
+                    if char != '|':
+                        fields.append(char)
+                    else:
+                        break
+                prefix = "".join(fields[:3]) 
+                if prefix not in valid_prefixes:
+                    valid_prefixes.append(prefix)
     except FileNotFoundError:
         print("Error: postal_codes.csv file not found.")
-        return False
-postal_code = input("Enter the postal code to validate: ").strip()
- # Validate length
+        return
+
+    postal_code = input("Enter a postal code to validate: ").strip()
+
     if len(postal_code) < 3:
         print("Invalid: Postal code must be at least 3 characters long.")
-        return False
-    if postal_code[:3] not in postal_codes:
-        print("Invalid: Postal code prefix does not match any known postal codes.")
-        return False
+        return
 
-    print("Valid postal code.")
-    return True
+    input_prefix = postal_code[:3]  
+    is_valid = False
+    for valid_prefix in valid_prefixes:
+        if valid_prefix == input_prefix:
+            is_valid = True
+            break
 
-validatePostalCode()
+Return result
+    if is_valid:
+        print("Valid postal code.")
+    else:
+        print("Invalid postal code.")
+
 '''
     This function is to be edited to achieve the task.
     It is your decision to make this function a procedural or functional type
