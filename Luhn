@@ -24,18 +24,27 @@ def printMenu():
 # Mirhan
 def enterCustomerInfo():
     first_name = input("Enter your first name: ")
-    last_name = input("Enter your last name: ") 
-    city = input("Enter the city that you live in: ") 
+    last_name = input("Enter your last name: ")
+    city = input("Enter what city you live in: ")
     postal_code = input("Enter your postal code: ") 
+    
+    credit_card_number = credit_card_input()
+    
+    return first_name, last_name, city, credit_card_number, postal_code
+
+def credit_card_input(): 
     
     while True: 
         credit_card_number = input("Enter your credit card number: ")
-        if len(credit_card_number) <=19 and len(credit_card_number) >= 9 and credit_card_number.isdigit(): 
-            break 
+        if len(credit_card_number) <=19 and len(credit_card_number) >= 9 and credit_card_number.isdigit():
+
+            if validateCreditCard(credit_card_number): 
+                print("This credit card is valid.")
+                return credit_card_number
+            else: 
+                print("This credit card is not valid.")
         else: 
-            print("Please type in your entire credit card number, which is between 9 to 19 digits.")
-   
-    return first_name, last_name, city, credit_card_number, postal_code
+            print("Please type in your entire credit card number. (Only Numbers)")
 
 '''
     This function is to be edited to achieve the task.
@@ -76,8 +85,26 @@ validatePostalCode()
     This function may also be broken down further depending on your algorithm/approach
 '''
 # Mirhan
-def validateCreditCard():
-    pass    # Remove this pass statement and add your own code below
+def validateCreditCard(credit_card_number): 
+    
+    credit_card_number = [int(digit) for digit in credit_card_number]
+    
+    check_digit = credit_card_number.pop(-1)
+    
+    credit_card_number.reverse()
+    
+    for idx in range(len(credit_card_number)):
+        if idx % 2 == 0: 
+            credit_card_number[idx] *= 2 
+            if credit_card_number[idx] > 9: 
+                credit_card_number[idx] -= 9
+
+    credit_card_number.append(check_digit)
+    
+    checksum = sum(credit_card_number)
+    
+    return checksum % 10 == 0
+    
 
 '''
     This function is to be edited to achieve the task.
