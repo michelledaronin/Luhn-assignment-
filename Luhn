@@ -114,6 +114,19 @@ def validateCreditCard(credit_card_number):
 '''
 # Michelle 
 def generateCustomerDataFile():
+    # Collect customer information
+    first_name, last_name, city, credit_card_number, postal_code = enterCustomerInfo()
+
+    file_name = "customer_data.csv"
+
+    try:
+        with open(file_name, "a") as file:
+            file.write(f"{first_name},{last_name},{city},{postal_code},{credit_card_number}\n")
+        print(f"Customer data saved to {file_name}")
+    except IOError:
+        print("Error: Unable to write to the file.")
+
+
     pass    # Remove this pass statement and add your own code below
 
 ####################################################################
