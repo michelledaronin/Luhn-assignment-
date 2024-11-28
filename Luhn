@@ -89,7 +89,7 @@ def validateCreditCard(credit_card_number):
     
     credit_card_number = [int(digit) for digit in credit_card_number]
     
-    check_digit = credit_card_number.pop(-1)
+    last_digit = credit_card_number.pop(-1)
     
     credit_card_number.reverse()
     
@@ -99,7 +99,7 @@ def validateCreditCard(credit_card_number):
             if credit_card_number[idx] > 9: 
                 credit_card_number[idx] -= 9
 
-    credit_card_number.append(check_digit)
+    credit_card_number.append(last_digit)
     
     checksum = sum(credit_card_number)
     
